@@ -1,3 +1,11 @@
+# directories
+ansys-result-files/.vs
+x64/
+
+# Visual Studio
+*.vcxproj.filters
+*.vcxproj.user
+
 # Prerequisites
 *.d
 
