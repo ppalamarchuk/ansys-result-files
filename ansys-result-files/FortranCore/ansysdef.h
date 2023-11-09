@@ -9,6 +9,8 @@
 # define MAXDOFSPERNODE   32
 # define MAXREALS         100
 # define MAXNODESPERELEM  24
+# define MAXDOFLABELLEN   ((MAXDOFSPERNODE+1)*4+1)
+# define MAXELERECORD     (MAXNODESPERELEM*11)
 
 /***********  definitions for erinqr              ************/
 # define ER_ERRORFLAG     1                  /* ansysdef.inc */

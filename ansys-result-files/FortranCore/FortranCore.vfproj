@@ -54,9 +54,13 @@
 		<Filter Name="Header Files" Filter="fi;fd"/>
 		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
 		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
-		<File RelativePath=".\FortranCore.f90"/></Filter>
+		<File RelativePath=".\FResRd.f90"/>
+		<File RelativePath=".\FResWr.f90"/></Filter>
 		<File RelativePath=".\ansysdef.h"/>
+		<File RelativePath=".\computer.h"/>
+		<File RelativePath=".\impcom.f90"/>
 		<File RelativePath=".\ResRd.txt"/>
+		<File RelativePath=".\ResWr.txt"/>
 	</Files>
 	<Globals/>
 </VisualStudioProject>

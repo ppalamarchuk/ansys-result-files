@@ -146,7 +146,13 @@ xcopy /y /d "$(SolutionDir)FortranCore\binlib.dll" "$(OutDir)"</Command>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="example1.cpp" />
+    <ClCompile Include="example2.cpp" />
     <ClCompile Include="SampleApp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="example1.h" />
+    <ClInclude Include="example2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

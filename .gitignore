@@ -1,6 +1,7 @@
 # directories
 ansys-result-files/.vs
 x64/
+AnsysExamples/
 
 # Visual Studio
 *.vcxproj.filters
@@ -38,3 +39,7 @@ x64/
 *.exe
 *.out
 *.app
+
+# exceptions
+!ansys-result-files/FortranCore/binlib.dll
+!ansys-result-files/FortranCore/binlib.lib
