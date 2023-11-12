@@ -2,9 +2,9 @@
 #include "CResRd.h"
 
 
-extern "C" int FResRdBegin(char* FileName, char* Title, char* JobName, int* Units, int* NumDOF,
-    int* DOFs, int* UserCode, int* MaxNode, int* NumNode, int* MaxElem, int* NumElem,
-    int* MaxResultSet, int* NumResultSet);
+extern "C" int FResRdBegin(const char* FileName, char* Title, char* JobName,
+    int* Units, int* NumDOF, int* DOFs, int* UserCode, int* MaxNode, int* NumNode,
+    int* MaxElem, int* NumElem, int* MaxResultSet, int* NumResultSet);
 extern "C" void FResRdEnd();
 extern "C" void FResRdGeomBegin(int* MaxType, int* MaxReal, int* MaxCsys, int* nXYZ);
 extern "C" void FResRdGeomEnd();
@@ -53,231 +53,235 @@ extern "C" int FResRdNstr(int* node, double** Nstr);
 extern "C" int FTestFunction(int* iNode, double* xyzang);
 
 
-int arf::CResRdBegin(char* FileName, char* Title, char* JobName, int* Units, int* NumDOF,
-    int* DOFs, int* UserCode, int* MaxNode, int* NumNode, int* MaxElem, int* NumElem,
-    int* MaxResultSet, int* NumResultSet)
+using namespace arf::subroutines;
+
+int arf::subroutines::CResRdBegin(const char* FileName, char* Title, char* JobName,
+    int* Units, int* NumDOF, int* DOFs, int* UserCode, int* MaxNode, int* NumNode,
+    int* MaxElem, int* NumElem, int* MaxResultSet, int* NumResultSet)
 {
     return FResRdBegin(FileName, Title, JobName, Units, NumDOF, DOFs, UserCode,
         MaxNode, NumNode, MaxElem, NumElem, MaxResultSet, NumResultSet);
 }
 
-void arf::CResRdEnd()
+void arf::subroutines::CResRdEnd()
 {
     FResRdEnd();
 }
 
-void arf::CResRdGeomBegin(int* MaxType, int* MaxReal, int* MaxCsys, int* nXYZ)
+void arf::subroutines::CResRdGeomBegin(int* MaxType, int* MaxReal,
+    int* MaxCsys, int* nXYZ)
 {
     FResRdGeomBegin(MaxType, MaxReal, MaxCsys, nXYZ);
 }
 
-void arf::CResRdGeomEnd()
+void arf::subroutines::CResRdGeomEnd()
 {
     FResRdGeomEnd();
 }
 
-void arf::CResRdTypeBegin(int* NumType)
+void arf::subroutines::CResRdTypeBegin(int* NumType)
 {
     FResRdTypeBegin(NumType);
 }
 
-int arf::CResRdType(int* itype, int* ielc)
+int arf::subroutines::CResRdType(int* itype, int* ielc)
 {
     return FResRdType(itype, ielc);
 }
 
-void arf::CResRdTypeEnd()
+void arf::subroutines::CResRdTypeEnd()
 {
     FResRdTypeEnd();
 }
 
-void arf::CResRdRealBegin(int* NumReal, int* NumPerReal)
+void arf::subroutines::CResRdRealBegin(int* NumReal, int* NumPerReal)
 {
     FResRdRealBegin(NumReal, NumPerReal);
 }
 
-int arf::CResRdReal(int* iReal, double* Rcon)
+int arf::subroutines::CResRdReal(int* iReal, double* Rcon)
 {
     return FResRdReal(iReal, Rcon);
 }
 
-void arf::CResRdRealEnd()
+void arf::subroutines::CResRdRealEnd()
 {
     FResRdRealEnd();
 }
 
-void arf::CResRdCsysBegin(int* NumCsys)
+void arf::subroutines::CResRdCsysBegin(int* NumCsys)
 {
     FResRdCsysBegin(NumCsys);
 }
 
-int arf::CResRdCsys(int* iCsys, double* Csys)
+int arf::subroutines::CResRdCsys(int* iCsys, double* Csys)
 {
     return FResRdCsys(iCsys, Csys);
 }
 
-void arf::CResRdCsysEnd()
+void arf::subroutines::CResRdCsysEnd()
 {
     FResRdCsysEnd();
 }
 
-void arf::CResRdNodeBegin()
+void arf::subroutines::CResRdNodeBegin()
 {
     FResRdNodeBegin();
 }
 
-int arf::CResRdNode(int* iNode, double* xyzang)
+int arf::subroutines::CResRdNode(int* iNode, double* xyzang)
 {
     return FResRdNode(iNode, xyzang);
 }
 
-void arf::CResRdNodeEnd()
+void arf::subroutines::CResRdNodeEnd()
 {
     FResRdNodeEnd();
 }
 
-void arf::CResRdElemBegin()
+void arf::subroutines::CResRdElemBegin()
 {
     FResRdElemBegin();
 }
 
-int arf::CResRdElem(int* iElem, int* nodes, int* ElemData)
+int arf::subroutines::CResRdElem(int* iElem, int* nodes, int* ElemData)
 {
     return FResRdElem(iElem, nodes, ElemData);
 }
 
-void arf::CResRdElemEnd()
+void arf::subroutines::CResRdElemEnd()
 {
     FResRdElemEnd();
 }
 
-int arf::CResRdSolBegin(int* key, int* lstep, int* substep, int* ncumit,
-    int* kcmplx, double* time, char* Title, char* DofLab)
+int arf::subroutines::CResRdSolBegin(int* key, int* lstep, int* substep,
+    int* ncumit, int* kcmplx, double* time, char* Title, char* DofLab)
 {
     return FResRdSolBegin(key, lstep, substep, ncumit, kcmplx, time, Title, DofLab);
 }
 
-void arf::CResRdSolEnd()
+void arf::subroutines::CResRdSolEnd()
 {
     FResRdSolEnd();
 }
 
-void arf::CResRdDispBegin()
+void arf::subroutines::CResRdDispBegin()
 {
     FResRdDispBegin();
 }
 
-int arf::CResRdDisp(int* node, double* Disp)
+int arf::subroutines::CResRdDisp(int* node, double* Disp)
 {
     return FResRdDisp(node, Disp);
 }
 
-void arf::CResRdDispEnd()
+void arf::subroutines::CResRdDispEnd()
 {
     FResRdDispEnd();
 }
 
-void arf::CResRdRforBegin(int* nRForce)
+void arf::subroutines::CResRdRforBegin(int* nRForce)
 {
     FResRdRforBegin(nRForce);
 }
 
-int arf::CResRdRfor(int* node, int* idof, double* value)
+int arf::subroutines::CResRdRfor(int* node, int* idof, double* value)
 {
     return FResRdRfor(node, idof, value);
 }
 
-void arf::CResRdRforEnd()
+void arf::subroutines::CResRdRforEnd()
 {
     FResRdRforEnd();
 }
 
-void arf::CResRdBCBegin(int* BCHeader)
+void arf::subroutines::CResRdBCBegin(int* BCHeader)
 {
     FResRdBCBegin(BCHeader);
 }
 
-void arf::CResRdBCEnd()
+void arf::subroutines::CResRdBCEnd()
 {
     FResRdBCEnd();
 }
 
-void arf::CResRdFixBegin(int* BCHeader, int* nFixed)
+void arf::subroutines::CResRdFixBegin(int* BCHeader, int* nFixed)
 {
     FResRdFixBegin(BCHeader, nFixed);
 }
 
-int arf::CResRdFixOld(int* node, int* idof, double* value)
+int arf::subroutines::CResRdFixOld(int* node, int* idof, double* value)
 {
     return FResRdFixOld(node, idof, value);
 }
 
-int arf::CResRdFix(int* node, int* idof, double* value)
+int arf::subroutines::CResRdFix(int* node, int* idof, double* value)
 {
     return FResRdFix(node, idof, value);
 }
 
-void arf::CResRdFixEnd()
+void arf::subroutines::CResRdFixEnd()
 {
     FResRdFixEnd();
 }
 
-void arf::CResRdForcBegin(int* BCHeader, int* nForces)
+void arf::subroutines::CResRdForcBegin(int* BCHeader, int* nForces)
 {
     FResRdForcBegin(BCHeader, nForces);
 }
 
-int arf::CResRdForcOld(int* node, int* idof, double* value)
+int arf::subroutines::CResRdForcOld(int* node, int* idof, double* value)
 {
     return FResRdForcOld(node, idof, value);
 }
 
-int arf::CResRdForc(int* node, int* idof, double* value)
+int arf::subroutines::CResRdForc(int* node, int* idof, double* value)
 {
     return FResRdForc(node, idof, value);
 }
 
-void arf::CResRdForcEnd()
+void arf::subroutines::CResRdForcEnd()
 {
     FResRdForcEnd;
 }
 
-void arf::CResRdEresBegin()
+void arf::subroutines::CResRdEresBegin()
 {
     FResRdEresBegin();
 }
 
-void arf::CResRdEresEnd()
+void arf::subroutines::CResRdEresEnd()
 {
     FResRdEresEnd();
 }
 
-int arf::CResRdEstrBegin(int* iElem)
+int arf::subroutines::CResRdEstrBegin(int* iElem)
 {
     return FResRdEstrBegin(iElem);
 }
 
-int arf::CResRdEstr(int* iStr, double* Str)
+int arf::subroutines::CResRdEstr(int* iStr, double* Str)
 {
     return FResRdEstr(iStr, Str);
 }
 
-void arf::CResRdEstrEnd()
+void arf::subroutines::CResRdEstrEnd()
 {
     FResRdEstrEnd();
 }
 
-void arf::CResRdNstrBegin(int* kNodStr)
+void arf::subroutines::CResRdNstrBegin(int* kNodStr)
 {
     FResRdNstrBegin(kNodStr);
 }
 
-int arf::CResRdNstr(int* node, double** Nstr)
+int arf::subroutines::CResRdNstr(int* node, double** Nstr)
 {
     return FResRdNstr(node, Nstr);
 }
 
-void arf::CResRdNstrEnd()
+void arf::subroutines::CResRdNstrEnd()
 {
     FResRdNstrEnd();
 }
+
